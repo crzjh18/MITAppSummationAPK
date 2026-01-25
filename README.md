@@ -1,62 +1,64 @@
-# Sigma Summation Calculator (MIT App Inventor)
+# Sigma Summation Calculator
 
-A mathematical utility app built with MIT App Inventor that calculates the **Summation ($\sum$)** of a specific function over a defined range. This app evaluates mathematical expressions dynamically and displays both the step-by-step expansion and the final result.
+**A Mathematical Utility Built with MIT App Inventor**
 
-## 🚀 Features
+This project is a mathematical utility application designed to calculate the **Summation ($\sum$)** of a user-defined function over a specific range. It evaluates mathematical expressions dynamically, providing both the final calculated result and a step-by-step expansion of the series for verification purposes.
 
-* **Dynamic Function Evaluation:** Input any mathematical function (in terms of variable `n`) and calculate its value.
-* **Custom Ranges:** Set specific **Lower** and **Upper** limits for the summation loop.
-* **Step-by-Step Visualization:** Displays the expanded series (e.g., `1 + 4 + 9...`) so users can verify the calculation.
-* **Real-time Calculation:** Instantly computes the running sum upon button click.
+## Key Features
 
-## 🛠️ Dependencies & Extensions
+* **Dynamic Function Evaluation:** Users can input any mathematical function using the variable `n` (e.g., `n^2`, `2*n + 1`) and the app will interpret and solve it dynamically.
+* **Custom Loop Limits:** Allows for the definition of specific **Lower** and **Upper** bounds for the summation loop.
+* **Series Visualization:** Generates a text-based expansion of the series (e.g., `1 + 4 + 9...`), allowing users to verify the logic behind the calculation.
+* **Real-time Computation:** Instantly computes the running sum and updates the display upon execution.
 
-This project requires the **TaifunMath** extension to evaluate string-based mathematical expressions.
+## Dependencies
 
-* **Extension Name:** `com.puravidaapps.TaifunMath`
-* **Location:** You can find the `.aix` file in this repository (e.g., in the `extensions/` folder or root directory).
-* **Credit:** [Pura Vida Apps - TaifunMath](https://puravidaapps.com/math.php)
+This project relies on a specific extension to handle string-based mathematical evaluation. This extension must be loaded for the logic to function.
 
-> **Note:** If you are importing this project (.aia) into MIT App Inventor, ensure the extension is loaded correctly in the Designer view.
+* **Extension:** TaifunMath
+* **Package Name:** `com.puravidaapps.TaifunMath`
+* **Function:** Parses and evaluates the string input from the text box as a mathematical expression.
+* **Source:** [Pura Vida Apps](https://puravidaapps.com/math.php)
 
-## 📖 How to Use
+> **Important:** If importing the source `.aia` file, verify that the TaifunMath extension is correctly loaded in the "Extensions" palette at the bottom of the Designer view.
 
-1.  **Function Input (`TextBox1`):** Enter your mathematical formula using the variable `n`.
-    * *Example:* `n^2` or `2*n + 1`
-2.  **Upper Limit (`TextBox2`):** Enter the ending number for the loop.
-3.  **Lower Limit (`TextBox3`):** Enter the starting number for the loop.
-4.  **Calculate:** Press **Button1**.
-5.  **Results:**
-    * **TextBox4:** Shows the expansion series text.
-    * **TextBox5:** Shows the final calculated sum.
+## Algorithm and Block Logic
 
-## 🧩 How It Works (Blocks Logic)
-
-The core logic handles the summation loop as follows:
+The core functionality is built upon a standard accumulation loop algorithm implemented via MIT App Inventor blocks:
 
 1.  **Initialization:**
-    * Global variables are reset (Sum = 0, Steps = Empty).
-    * Inputs are read from the TextBoxes.
-2.  **The Loop (`For Each`):**
-    * The app iterates from the `globalLower` limit to the `globalUpper` limit.
-    * **Substitution:** Inside the loop, the app takes the user's function string and replaces the character `"n"` with the current loop number (`i`).
-    * **Evaluation:** The `TaifunMath.Expression` block calculates the numerical value of that specific iteration.
-3.  **Accumulation:**
-    * The result is added to `globalRunningSum`.
-    * The result is also appended to `globalStepstext` to create the visual string (handling " + " formatting between numbers).
-4.  **Output:** Finally, the text and total sum are displayed to the user.
+    * Global variables for `Sum` (0) and `Steps` (Empty string) are reset.
+    * User inputs are captured from the UI components.
+2.  **Iterative Loop:**
+    * A `For Each` loop initiates, running from the defined `Lower Limit` to the `Upper Limit`.
+3.  **Substitution & Evaluation:**
+    * **Substitute:** Within each iteration, the algorithm takes the user's function string and replaces the variable character `"n"` with the current loop index `i`.
+    * **Evaluate:** The `TaifunMath.Expression` block takes this modified string and calculates its numerical value.
+4.  **Accumulation:**
+    * The calculated value is added to the `globalRunningSum`.
+    * The value is appended to the `globalStepstext` variable to build the visualization string.
+5.  **Output:**
+    * The final expansion string and the total sum are rendered to the user interface.
 
-## 📥 Installation
+## How to Use
+
+1.  **Function Input:** Enter the mathematical formula in the first text box using the variable `n`.
+2.  **Define Range:** Enter the starting number (Lower Limit) and ending number (Upper Limit) in their respective fields.
+3.  **Execute:** Press the **Calculate** button.
+4.  **Review:**
+    * View the expansion series in the "Steps" display.
+    * View the final total in the "Result" display.
+
+## Installation
 
 1.  Download the `.aia` source file from this repository.
-2.  Go to [MIT App Inventor](http://ai2.appinventor.mit.edu/).
-3.  Click **Projects** > **Import project (.aia) from my computer**.
-4.  Select the file and let it load.
-5.  Ensure the `TaifunMath` extension is present in the bottom of the component palette.
+2.  Navigate to [MIT App Inventor](http://ai2.appinventor.mit.edu/).
+3.  Select **Projects** > **Import project (.aia) from my computer**.
+4.  Upload the file to load the blocks and designer view.
 
-## 📄 License
+## License and Credits
 
-This project (the Blocks logic and source code) is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+This project source code is licensed under the **MIT License**.
 
 **Third-Party Credits:**
-* **TaifunMath Extension:** Copyright © Pura Vida Apps. Used under fair use/permission for functionality. (See: [puravidaapps.com](https://puravidaapps.com))
+* **TaifunMath Extension:** Copyright © Pura Vida Apps. Used under fair use for educational and functional purposes.
